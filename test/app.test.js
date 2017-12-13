@@ -17,11 +17,10 @@ let anotherFileData = fs.readFileSync(anotherDataFilePath);
 
 describe('test app', () => {
   const testDataDir = path.resolve(__dirname, './data');
-  const watchDataDir = path.resolve(__dirname, './watchData');
   let app;
   
   before((done) => {
-    generateApp(testDataDir, watchDataDir).then((testApp) => {
+    generateApp(testDataDir).then((testApp) => {
       app = testApp;
       done();
     });
@@ -63,8 +62,6 @@ describe('test app', () => {
       }, 200)
     });
   });
-
-
 
   describe('POST /', () => {
     it('it should handle POST', (done) => {
